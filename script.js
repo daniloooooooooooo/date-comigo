@@ -27,7 +27,7 @@ function moverBotao(){
 
     message.innerText = frases[tentativa];
 
-    if(tentativa < frases.length-1){
+    if(tentativa < frases.length - 1){
         tentativa++;
     }
 
@@ -43,6 +43,7 @@ no.addEventListener("touchstart",(e)=>{
 
 });
 
+
 yes.addEventListener("click",()=>{
 
     card.classList.add("fadeOut");
@@ -51,7 +52,7 @@ yes.addEventListener("click",()=>{
 
         card.innerHTML=`
 
-        <span class="vip">❤️</span>
+        <span class="vip">❤️ CONVITE CONFIRMADO</span>
 
         <h1>Eu sabia...</h1>
 
@@ -59,13 +60,29 @@ yes.addEventListener("click",()=>{
 
         Você acabou de fazer alguém muito feliz.
 
+        Agora falta escolher onde será nosso date ❤️
+
         </p>
 
         <h2>
 
-        Obrigado, Emilly ❤️
+        Escolha o lugar:
 
         </h2>
+
+
+        <div class="restaurants">
+
+            <button class="place" onclick="escolherLugar('Outback')">
+            🍔 Outback
+            </button>
+
+
+            <button class="place" onclick="escolherLugar('Japonês')">
+            🍣 Japonês
+            </button>
+
+        </div>
 
         `;
 
@@ -76,3 +93,49 @@ yes.addEventListener("click",()=>{
     },700);
 
 });
+
+
+
+function escolherLugar(lugar){
+
+    card.classList.add("fadeOut");
+
+
+    setTimeout(()=>{
+
+
+        card.innerHTML=`
+
+        <span class="vip">✨ PERFEITO</span>
+
+
+        <h1>${lugar}</h1>
+
+
+        <p class="text">
+
+        Ótima escolha, Emilly ❤️
+
+        Agora é só esperar pelo nosso momento.
+
+        </p>
+
+
+        <h2>
+
+        Danilo & Emilly
+
+        </h2>
+
+
+        `;
+
+
+        card.classList.remove("fadeOut");
+
+        card.classList.add("fadeIn");
+
+
+    },700);
+
+}
